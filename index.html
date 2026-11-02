@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav id="navbar" class="navbar">
+    <div class="navbar-venstre"></div>
+
+    <a href="index.html" class="navbar-midte">
+        <img src="billeder/logo.svg" alt="Playground Logo" class="logo">
+        <h1>PlayGround</h1>
+    </a>
+
+    <div class="navbar-hoejre">
+        <a href="index.html">
+            <img src="billeder/hus.svg" alt="Hus Icon" class="hus-icon">
+        </a>
+
+        <a href="index.html">
+            <img src="billeder/person.svg" alt="Person Icon" class="person-icon">
+        </a>
+    
+        <a href="index.html">
+            <img src="billeder/icon-search-white.svg" alt="Søg" class="search-icon">
+        </a>
+    </div>
+</nav>
+    
+
+    <div class="container">
+        <header>
+            <h1>Spil</h1>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <input type="search" id="search-input" placeholder="Søg efter spil..." class="search-input">
+
+                <select id="sorter-valg" class="predefined-select">
+                    <option value="">---- Sorter efter ----</option>
+                    <option value="popularitet">Popularitet</option>
+                    <option value="sværhedsgrad-stigende">Sværhedsgrad: Lav til høj</option>
+                    <option value="sværhedsgrad-faldende">Sværhedsgrad: Høj til lav</option>
+                    <option value="varighed">Varighed: Stigende</option>
+        
+                </select>
+
+                <button id="filter-toggle" class="filter-button">
+                    <span>
+                        <img src="billeder/icon-search.svg" alt="Søg" class="filter-icon">
+                         Filtrer</span>
+                </button>
+            </div>
+
+            <div id="filter-panel" class="filter-panel">
+                <div class="filter-header">
+                    <h2>Filtrer Spil</h2>
+                    <button id="close-filter" class="close-button">&times;</button>
+                </div>
+
+              <div class="filter-content">
+                        <div class="filter-group">
+                        <label class="filter-label">Spiltype</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" name="spiltype" value="selskabsspil"> Selskabsspil</label>
+                            <label class="checkbox-label"><input type="checkbox" name="spiltype" value="samarbejdsspil"> Samarbejdsspil</label>
+                            <label class="checkbox-label"><input type="checkbox" name="spiltype" value="strategispil"> Strategispil</label>
+                            <label class="checkbox-label"><input type="checkbox" name="spiltype" value="kortspil"> Kortspil</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Antal spillere</label>
+                        <input type="number" id="antal-spillere" placeholder="Hvor mange er I?" class="price-input" min="1">
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Maks. varighed (minutter)</label>
+                        <input type="number" id="max-varighed" placeholder="F.eks. 30" class="price-input" min="1">
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Sværhedsgrad</label>
+                        <div class="rating-group">
+                            <label class="rating-label"><input type="radio" name="svaerhedsgrad" value="1"> Meget let</label>
+                            <label class="rating-label"><input type="radio" name="svaerhedsgrad" value="2"> Let</label>
+                            <label class="rating-label"><input type="radio" name="svaerhedsgrad" value="3"> Mellem</label>
+                            <label class="rating-label"><input type="radio" name="svaerhedsgrad" value="4"> Svær</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Stemning</label>
+                        <div class="color-group">
+                            <label class="color-label"><input type="checkbox" name="stemning" value="afslappet"> Afslappet</label>
+                            <label class="color-label"><input type="checkbox" name="stemning" value="hjernevrider"> Hjernevrider</label>
+                            <label class="color-label"><input type="checkbox" name="stemning" value="sjov"> Sjov</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Sprog</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" name="sprog" value="dansk"> Dansk</label>
+                            <label class="checkbox-label"><input type="checkbox" name="sprog" value="engelsk"> Engelsk</label>
+                            <label class="checkbox-label"><input type="checkbox" name="sprog" value="sprogfri"> Sprogfri</label>
+                        </div>
+                    </div>
+
+    
+
+                    <div class="filter-group">
+                        <label class="filter-label">Udgave</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" name="udgave" value="standard"> Standard</label>
+                            <label class="checkbox-label"><input type="checkbox" name="udgave" value="english edition"> English edition</label>
+                            <label class="checkbox-label"><input type="checkbox" name="udgave" value="familie edition"> Familie edition</label>
+                            <label class="checkbox-label"><input type="checkbox" name="udgave" value="dansk edition"> Dansk edition</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-footer">
+    <button id="reset-filters" class="reset-button">Nulstil filtre</button>
+    <button id="apply-filters" class="apply-button">Vis Spil</button>
+</div>
+
+          
+            </div>
+
+            <div id="products-container" class="products-container">
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Spilkatalog</p>
+        </footer>
+    </div>
+
+    <dialog id="product-dialog">
+        <article class="dialog-content">
+            <img id="dialog-image" src="" alt="" class="product-image">
+            <h2 id="dialog-title"></h2>
+            <p id="dialog-description"></p>
+            <div class="product-meta">
+                <span id="dialog-price" class="product-price"></span>
+                <span id="dialog-category" class="product-category"></span>
+            </div>
+            <div id="dialog-rating" class="product-rating"></div>
+            <menu class="dialog-actions">
+                <button id="dialog-close" value="cancel">Luk</button>
+            </menu>
+        </article>
+    </dialog>
+
+
+
+    <div id="overlay" class="overlay"></div>
+    <script src="data.js"></script>
+    <script src="scriptui.js"></script>
+    <script src="scriptfilt.js"></script>
+</body>
+
+</html>
